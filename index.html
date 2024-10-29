@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Search</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Search</h1>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by name, ID, etc.." />
+        <button id="searchButton">Search</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Student ID</th>
+            <th>Status</th>
+            <th>Matching</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="studentList">
+          <!-- student data will be populated here-->
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
