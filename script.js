@@ -143,22 +143,32 @@ const students = [
   // Add more student objects as needed
 ];
 
-// Function to display students in the table
 function displayStudents(studentList) {
   const studentListElement = document.getElementById('studentList');
   studentListElement.innerHTML = ''; // Clear previous results
 
-  studentList.forEach((student) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `  
-          <td>${student.name}</td>  
-          <td>${student.id}</td>  
-          <td>${student.status}</td>  
-          <td>${student.matching}</td>  
-          <td>${student.score}</td>  
-      `;
-    studentListElement.appendChild(row);
-  });
+  if (studentList.length === 0) {
+    // Create a message when there are no students
+    const messageRow = document.createElement('tr');
+    const messageCell = document.createElement('td');
+    messageCell.colSpan = 5; // Span across all columns
+    messageCell.textContent = 'No matching students found.';
+    messageCell.style.textAlign = 'center'; // Center the message
+    messageRow.appendChild(messageCell);
+    studentListElement.appendChild(messageRow);
+  } else {
+    studentList.forEach((student) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `  
+            <td>${student.name}</td>  
+            <td>${student.id}</td>  
+            <td>${student.status}</td>  
+            <td>${student.matching}</td>  
+            <td>${student.score}</td>  
+        `;
+      studentListElement.appendChild(row);
+    });
+  }
 }
 
 // Function to filter students based on search input
