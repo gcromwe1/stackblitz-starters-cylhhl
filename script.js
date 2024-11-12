@@ -6,6 +6,10 @@ const students = [
     status: 'None sent',
     matching: 'Matched',
     score: 'N/A',
+    major: 'Chemistry',
+    college: 'Natural Sciences',
+    classification: 'Junior',
+    email: 'cdarwin1@my.tnstate.edu',
   },
   {
     name: 'Marie Curie',
@@ -13,6 +17,10 @@ const students = [
     status: 'Interviewed',
     matching: 'Not Matched',
     score: '85',
+    major: 'Enviromental Sciences',
+    college: 'Physical Sciences',
+    classification: 'Sophmore',
+    email: 'mcurie1@my.tnstate.edu',
   },
   {
     name: 'Ilbert Einstein',
@@ -20,6 +28,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Psychology',
+    college: 'Natural Sciences',
+    classification: 'Junior',
+    email: 'ieinstein1@my.tnstate.edu',
   },
   {
     name: 'Plbert Einstein',
@@ -27,6 +39,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Enviromental Sciences',
+    college: 'Agricultural',
+    classification: 'Freshmen',
+    email: 'peinstein1@my.tnstate.edu',
   },
   {
     name: 'Kolbert Jinstein',
@@ -34,6 +50,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Computer Science',
+    college: 'Engineering',
+    classification: 'Junior',
+    email: 'kjinstein1@my.tnstate.edu',
   },
   {
     name: 'Ylbert Winstein',
@@ -41,6 +61,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Business Administration',
+    college: 'Business',
+    classification: 'Freshmen',
+    email: 'ywinstein1@my.tnstate.edu',
   },
   {
     name: 'Nibert Kinstein',
@@ -48,6 +72,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Education',
+    college: 'Literature',
+    classification: 'Freshmen',
+    email: 'nkinstein1@my.tnstate.edu',
   },
   {
     name: 'Aobert Minstein',
@@ -55,6 +83,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Arts Administration',
+    college: 'Performing Arts',
+    classification: 'Junior',
+    email: 'aminstein1@my.tnstate.edu',
   },
   {
     name: 'Unbert Pinstein',
@@ -62,6 +94,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Neuroscience',
+    college: 'Natural Sciences',
+    classification: 'Sophomore',
+    email: 'upinstein1@my.tnstate.edu',
   },
   {
     name: 'Ant Qinstein',
@@ -69,6 +105,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Animal Science',
+    college: 'Agriculutral',
+    classification: 'Freshmen',
+    email: 'aqinstein1@my.tnstate.edu',
   },
   {
     name: 'Hand Binstein',
@@ -76,6 +116,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Electrical Engineering',
+    college: 'Engineering',
+    classification: 'Junior',
+    email: 'hbinstein1@my.tnstate.edu',
   },
   {
     name: 'Obama Linstein',
@@ -83,6 +127,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Astrophysics',
+    college: 'Physical Sciences',
+    classification: 'Senior',
+    email: 'olinstein1@my.tnstate.edu',
   },
   {
     name: 'Kamala Sinstein',
@@ -90,6 +138,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Nutrition',
+    college: 'Agriculuture',
+    classification: 'Senior',
+    email: 'ksinstein1@my.tnstate.edu',
   },
   {
     name: 'Zinele Uinstein',
@@ -97,6 +149,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Biochemistry',
+    college: 'Natural Sciences',
+    classification: 'Junior',
+    email: 'zuinstein1@my.tnstate.edu',
   },
   {
     name: 'Maimuna Binstein',
@@ -104,6 +160,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Mathematics',
+    college: 'Education',
+    classification: 'Sophomore',
+    email: 'mbinstein1@my.tnstate.edu',
   },
   {
     name: 'Jean Vinstein',
@@ -111,6 +171,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Undecided',
+    college: 'Undecided',
+    classification: 'Freshmen',
+    email: 'jvinstein1@my.tnstate.edu',
   },
   {
     name: 'Byran Cinstein',
@@ -118,6 +182,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '65',
+    major: 'Health Care Administration',
+    college: 'Health Sciences',
+    classification: 'Freshmen',
+    email: 'bcinstein1@my.tnstate.edu',
   },
   {
     name: 'Hrean Xinstein',
@@ -125,6 +193,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Pre-dentistry',
+    college: 'Dental Hyigene',
+    Classification: 'Junior',
+    email: 'hxinstein1@my.tnstate.edu',
   },
   {
     name: 'Polte Haulson',
@@ -132,6 +204,10 @@ const students = [
     status: 'Sent',
     matching: 'Matched',
     score: '90',
+    major: 'Nursing clinicals',
+    college: 'Nursing',
+    Classification: 'Sopohmore',
+    email: 'phaulson1@my.tnstate.edu',
   },
   {
     name: 'Georgia Peach',
@@ -139,36 +215,34 @@ const students = [
     status: 'Interviewed',
     matching: 'Not Matched',
     score: '60',
+    major: 'Pre-dentistry',
+    college: 'Dental Hyigene',
+    Classification: 'Senior',
+    email: 'gpeach1@my.tnstate.edu',
   },
   // Add more student objects as needed
 ];
 
+// Function to display students in the table
 function displayStudents(studentList) {
   const studentListElement = document.getElementById('studentList');
   studentListElement.innerHTML = ''; // Clear previous results
 
-  if (studentList.length === 0) {
-    // Create a message when there are no students
-    const messageRow = document.createElement('tr');
-    const messageCell = document.createElement('td');
-    messageCell.colSpan = 5; // Span across all columns
-    messageCell.textContent = 'No matching students found.';
-    messageCell.style.textAlign = 'center'; // Center the message
-    messageRow.appendChild(messageCell);
-    studentListElement.appendChild(messageRow);
-  } else {
-    studentList.forEach((student) => {
-      const row = document.createElement('tr');
-      row.innerHTML = `  
-            <td>${student.name}</td>  
-            <td>${student.id}</td>  
-            <td>${student.status}</td>  
-            <td>${student.matching}</td>  
-            <td>${student.score}</td>  
-        `;
-      studentListElement.appendChild(row);
-    });
-  }
+  studentList.forEach((student) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `  
+          <td>${student.name}</td>  
+          <td>${student.id}</td>  
+          <td>${student.status}</td>  
+          <td>${student.matching}</td>  
+          <td>${student.score}</td>
+          <td>${student.major}</td>
+          <td>${student.college}</td>
+          <td>${student.classification}</td> 
+          <td>${student.email}</td>     
+      `;
+    studentListElement.appendChild(row);
+  });
 }
 
 // Function to filter students based on search input
@@ -179,7 +253,8 @@ function filterStudents() {
   const filteredStudents = students.filter((student) => {
     return (
       student.name.toLowerCase().includes(searchInput) ||
-      student.id.toLowerCase().includes(searchInput)
+      student.id.toLowerCase().includes(searchInput) ||
+      (student.college && student.college.toLowerCase().includes(searchInput)) // Partial college name match
     );
   });
   displayStudents(filteredStudents);
