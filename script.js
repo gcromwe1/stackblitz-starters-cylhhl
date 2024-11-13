@@ -40,7 +40,7 @@ const students = [
     matching: 'Matched',
     score: '90',
     major: 'Environmental Sciences',
-    college: 'Agricultural',
+    college: 'Agriculture',
     classification: 'Freshmen',
     email: 'peinstein1@my.tnstate.edu',
   },
