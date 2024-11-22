@@ -57,7 +57,20 @@ const students = Array.from({ length: 801 }, (_, index) => {
   const classifications = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
   const statuses = ['None sent', 'Interviewed', 'Sent', 'Pending'];
 
-  const scientist = scientistNames[index % scientistNames.length];
+  const nameCount = new Map();
+
+  // Find a name that hasn't exceeded 3 occurrences
+  let scientist;
+  for (let attempt = 0; attempt < scientistNames.length; attempt++) {
+    scientist = scientistNames[(index + attempt) % scientistNames.length];
+    const fullName = `${scientist.first} ${scientist.last}`;
+    const currentCount = nameCount.get(fullName) || 0;
+    
+    if (currentCount < 3) {
+      nameCount.set(fullName, currentCount + 1);
+      break;
+    }
+  }
   
   return {
     first: scientist.first,
