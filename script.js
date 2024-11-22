@@ -775,21 +775,25 @@ const students = Array.from({ length: 801 }, (_, index) => {
   const statuses = ['None sent', 'Interviewed', 'Sent', 'Pending'];
 
   const nameCount = new Map();
+  const nameMaxCount = 4;  // Max number of people with the same name
 
-  // Find a name that hasn't exceeded 3 occurrences
   let scientist;
+
+  // Find a name that has not exceeded the allowed number of occurrences
   for (let attempt = 0; attempt < scientistNames.length; attempt++) {
     scientist = scientistNames[(index + attempt) % scientistNames.length];
     const fullName = `${scientist.first} ${scientist.last}`;
     const currentCount = nameCount.get(fullName) || 0;
-    
-    if (currentCount < 2) {
-      
+
+    // Limit to 1-4 occurrences of the same name
+    if (currentCount < nameMaxCount) {
+      // Update the name count
       nameCount.set(fullName, currentCount + 1);
       break;
     }
   }
-  
+
+  // Return the student object with first name, last name, and other details
   return {
     first: scientist.first,
     last: scientist.last,
@@ -844,6 +848,3 @@ document
 
 // Initial display of all students
 displayStudents(students);
-
-
-
