@@ -1,7 +1,7 @@
 // Student
 const students = Array.from({ length: 801 }, (_, index) => {
   const scientistNames = [
-    { first: 'Aaliyah', last: 'Smith' },
+    { first: 'Aaliyah', last: 'Boris' },
     { first: 'Kwame', last: 'Owusu' },
     { first: 'Zuri', last: 'Johnson' },
     { first: 'Jamal', last: 'Williams' },
