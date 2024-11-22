@@ -833,7 +833,7 @@ const students = Array.from({ length: 801 }, (_, index) => {
     major: majors[index % majors.length],
     college: colleges[index % colleges.length],
     classification: classifications[index % classifications.length],
-    email: `${scientist.first[0].toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@my.tnstate.edu`
+    email: `${scientist.first[0].toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@tnstate.edu`
   };
 });
 
