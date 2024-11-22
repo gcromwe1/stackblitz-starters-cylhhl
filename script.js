@@ -760,47 +760,44 @@ const students = Array.from({ length: 801 }, (_, index) => {
     'Mathematics'
   ];
 
-  const majors = [
-    'Accounting',
-    'Agricultural Sciences',
-    'Anthropology',
-    'Biology',
-    'Business Administration',
-    'Chemistry',
-    'Civil Engineering',
-    'Computer Science',
-    'Criminal Justice',
-    'Electrical Engineering',
-    'Environmental Science',
-    'Finance',
-    'General Studies',
-    'Health Science',
-    'Human Performance and Sports Sciences',
-    'Information Technology',
-    'Integrated Studies',
-    'Management',
-    'Marketing',
-    'Mathematics',
-    'Mechanical Engineering',
-    'Music',
-    'Neuroscience',
-    'Nursing',
-    'Pharmaceutical Sciences',
-    'Physical Education',
-    'Physics',
-    'Political Science',
-    'Psychology',
-    'Public Administration',
-    'Social Work',
-    'Sociology',
-    'Special Education',
-    'Speech Pathology',
-    'Urban Studies',
-    'Veterinary Technology',
-    'Environmental Engineering',
-    'Educational Leadership',
-    
-  ];
+  // Define majors grouped by college
+  const majors = {
+    'Natural Sciences': [
+      'Biology',
+      'Chemistry',
+      'Neuroscience',
+      'Physics'
+    ],
+    'Physical Sciences': [
+      'Environmental Science',
+      'Environmental Engineering',
+      'Physics'
+    ],
+    'Engineering': [
+      'Civil Engineering',
+      'Electrical Engineering',
+      'Mechanical Engineering',
+      'Environmental Engineering'
+    ],
+    'Computer Science': [
+      'Computer Science',
+      'Information Technology',
+      'Software Engineering'
+    ],
+    'Biology': [
+      'Agricultural Sciences',
+      'Health Science',
+      'Veterinary Technology'
+    ],
+    'Mathematics': [
+      'Accounting',
+      'Mathematics',
+      'Finance',
+      'Management',
+      'Marketing',
+      'Business Administration'
+    ]
+  };
 
   const classifications = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
   const statuses = ['None sent', 'Interviewed', 'Sent', 'Pending'];
@@ -824,14 +821,21 @@ const students = Array.from({ length: 801 }, (_, index) => {
     }
   }
 
+  // Select a college based on the index and get the corresponding majors
+  const college = colleges[index % colleges.length];
+  const availableMajors = majors[college];  // Get the majors for the selected college
+
+  // Randomly select a major from the list of available majors for the college
+  const major = availableMajors[index % availableMajors.length];
+
   // Return the student object with first name, last name, and other details
   return {
     first: scientist.first,
     last: scientist.last,
     id: `STU${String(index).padStart(5, '0')}`,
     status: statuses[index % statuses.length],
-    major: majors[index % majors.length],
-    college: colleges[index % colleges.length],
+    major: major,
+    college: college,
     classification: classifications[index % classifications.length],
     email: `${scientist.first[0].toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@tnstate.edu`
   };
@@ -879,4 +883,3 @@ document
 
 // Initial display of all students
 displayStudents(students);
-
