@@ -1,4 +1,4 @@
-const students = Array.from({ length: 801 }, (_, index) => {
+const students = (() => {
   const scientistNames = [
     { first: 'Kwame', last: 'Nkrumah' },
     { first: 'Aaliyah', last: 'Smith' },
@@ -56,24 +56,27 @@ const students = Array.from({ length: 801 }, (_, index) => {
   const statuses = ['None sent', 'Interviewed', 'Sent', 'Pending'];
 
   const nameCount = {};
-  let scientist;
-  do {
-    scientist = scientistNames[index % scientistNames.length];
-    nameCount[`${scientist.first} ${scientist.last}`] = 
-      (nameCount[`${scientist.first} ${scientist.last}`] || 0) + 1;
-  } while (nameCount[`${scientist.first} ${scientist.last}`] > 3);
-  
-  return {
-    first: scientist.first,
-    last: scientist.last,
-    id: `STU${String(index).padStart(5, '0')}`,
-    status: statuses[index % statuses.length],
-    major: majors[index % majors.length],
-    college: colleges[index % colleges.length],
-    classification: classifications[index % classifications.length],
-    email: `${scientist.first.toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@my.tnstate.edu`
-  };
-});
+
+  return Array.from({ length: 801 }, (_, index) => {
+    let scientist;
+    do {
+      scientist = scientistNames[index % scientistNames.length];
+      nameCount[`${scientist.first} ${scientist.last}`] = 
+        (nameCount[`${scientist.first} ${scientist.last}`] || 0) + 1;
+    } while (nameCount[`${scientist.first} ${scientist.last}`] > 3);
+    
+    return {
+      first: scientist.first,
+      last: scientist.last,
+      id: `STU${String(index).padStart(5, '0')}`,
+      status: statuses[index % statuses.length],
+      major: majors[index % majors.length],
+      college: colleges[index % colleges.length],
+      classification: classifications[index % classifications.length],
+      email: `${scientist.first.toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@my.tnstate.edu`
+    };
+  });
+})();
 
 // Event listener for the search button
 document
