@@ -774,74 +774,80 @@ const students = Array.from({ length: 801 }, (_, index) => {
   const classifications = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
   const statuses = ['None sent', 'Interviewed', 'Sent', 'Pending'];
 
-  const nameCount = new Map();
+  const nameCount = new Map(); // To track how many times a name combination has been used
 
-  // Find a name that hasn't exceeded 3 occurrences
-  let scientist;
-  for (let attempt = 0; attempt < scientistNames.length; attempt++) {
-    scientist = scientistNames[(index + attempt) % scientistNames.length];
-    const fullName = `${scientist.first} ${scientist.last}`;
-    const currentCount = nameCount.get(fullName) || 0;
-    
-    if (currentCount < 2) {
-      nameCount.set(fullName, currentCount + 1);
-      break;
+  // Function to generate a student record
+  function generateStudent(index) {
+    let scientist;
+  
+    // Find a name that hasn't exceeded 2 occurrences
+    for (let attempt = 0; attempt < scientistNames.length; attempt++) {
+      scientist = scientistNames[(index + attempt) % scientistNames.length];
+      const fullName = `${scientist.first} ${scientist.last}`;
+      const currentCount = nameCount.get(fullName) || 0;
+  
+      // Ensure no name combination appears more than twice
+      if (currentCount < 2) {
+        // Increment the count for this full name
+        nameCount.set(fullName, currentCount + 1);
+        break;
+      }
     }
+  
+    // Return student data with email and other details
+    return {
+      first: scientist.first,
+      last: scientist.last,
+      id: `STU${String(index).padStart(5, '0')}`,
+      status: statuses[index % statuses.length],
+      major: majors[index % majors.length],
+      college: colleges[index % colleges.length],
+      classification: classifications[index % classifications.length],
+      email: `${scientist.first.toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@my.tnstate.edu`
+    };
   }
   
-  return {
-    first: scientist.first,
-    last: scientist.last,
-    id: `STU${String(index).padStart(5, '0')}`,
-    status: statuses[index % statuses.length],
-    major: majors[index % majors.length],
-    college: colleges[index % colleges.length],
-    classification: classifications[index % classifications.length],
-    email: `${scientist.first.toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@my.tnstate.edu`
-  };
-});
-
-// Function to display students in the table
-function displayStudents(studentList) {
-  const studentListElement = document.getElementById('studentList');
-  studentListElement.innerHTML = ''; // Clear previous results
-
-  studentList.forEach((student) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${student.first} ${student.last}</td>  
-      <td>${student.id}</td>  
-      <td>${student.status}</td>  
-      <td>${student.major}</td>
-      <td>${student.college}</td>
-      <td>${student.classification}</td> 
-      <td>${student.email}</td>     
-    `;
-    studentListElement.appendChild(row);
-  });
-}
-
-// Function to filter students based on search input
-function filterStudents() {
-  const searchInput = document
-    .getElementById('searchInput')
-    .value.toLowerCase();
-  const filteredStudents = students.filter((student) => {
-    return (
-      `${student.first} ${student.last}`.toLowerCase().includes(searchInput) ||
-      student.id.toLowerCase().includes(searchInput) ||
-      (student.college && student.college.toLowerCase().includes(searchInput)) // Partial college name match
-    );
-  });
-  displayStudents(filteredStudents);
-}
-
-// Event listener for the search button
-document
-  .getElementById('searchButton')
-  .addEventListener('click', filterStudents);
-
+  // Function to display students in the table
+  function displayStudents(studentList) {
+    const studentListElement = document.getElementById('studentList');
+    studentListElement.innerHTML = ''; // Clear previous results
+  
+    studentList.forEach((student) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        ${student.first} ${student.last}  
+        ${student.id}  
+        ${student.status}  
+        ${student.major}
+        ${student.college}
+        ${student.classification} 
+        ${student.email}     
+      `;
+      studentListElement.appendChild(row);
+    });
+  }
+  
+  // Function to filter students based on search input
+  function filterStudents() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const filteredStudents = students.filter((student) => {
+      return (
+        `${student.first} ${student.last}`.toLowerCase().includes(searchInput) ||
+        student.id.toLowerCase().includes(searchInput) ||
+        (student.college && student.college.toLowerCase().includes(searchInput)) // Partial college name match
+      );
+    });
+    displayStudents(filteredStudents);
+  }
+  
+  // Event listener for the search button
+  document.getElementById('searchButton').addEventListener('click', filterStudents);
+  
+  // Initialize the student list and display
+  const students = [];
+  for (let i = 0; i < 100; i++) { // Adjust the range as needed
+    students.push(generateStudent(i));
+  }
+  
 // Initial display of all students
 displayStudents(students);
-
-
