@@ -783,7 +783,7 @@ const students = Array.from({ length: 801 }, (_, index) => {
     const fullName = `${scientist.first} ${scientist.last}`;
     const currentCount = nameCount.get(fullName) || 0;
     
-    if (currentCount < 3) {
+    if (currentCount < 2) {
       nameCount.set(fullName, currentCount + 1);
       break;
     }
