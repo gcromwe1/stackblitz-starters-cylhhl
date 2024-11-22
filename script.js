@@ -1,16 +1,36 @@
-// Students data 
+// Students dataaaaaaa
 const students = Array.from({ length: 801 }, (_, index) => {
   const scientistNames = [
-    { first: 'Charles', last: 'Darwin' },
-    { first: 'Marie', last: 'Curie' },
-    { first: 'Albert', last: 'Einstein' },
-    { first: 'Isaac', last: 'Newton' },
-    { first: 'Nikola', last: 'Tesla' },
-    { first: 'Stephen', last: 'Hawking' },
-    { first: 'Rosalind', last: 'Franklin' },
-    { first: 'Ada', last: 'Lovelace' },
-    { first: 'Galileo', last: 'Galilei' },
-    { first: 'Jane', last: 'Goodall' }
+    { first: 'Kwame', last: 'Nkrumah' }
+    { first: 'Aaliyah', last: 'Smith' }
+{ first: 'Chike', last: 'Okafor' }
+{ first: 'Jamal', last: 'Brown' }
+{ first: 'Zuri', last: 'Johnson' }
+{ first: 'Adanna', last: 'Joseph' }
+{ first: 'Tunde', last: 'Adeyemi' }
+{ first: 'Kymani', last: 'Marley' }
+{ first: 'Ngozi', last: 'Ibe' }
+{ first: 'Leila', last: 'Charles' }
+{ first: 'Obi', last: 'Nwankwo' }
+{ first: 'Dante', last: 'Williams' }
+{ first: 'Amara', last: 'Okoro' }
+{ first: 'Sade', last: 'Adams' }
+{ first: 'Chinua', last: 'Achebe' }
+{ first: 'Rohan', last: 'Gonzalez' }
+{ first: 'Kofi', last: 'Annan' }
+{ first: 'Naomi', last: 'Hernandez' }
+{ first: 'Dayo', last: 'Ogunleye' }
+{ first: 'Tiana', last: 'Baptiste' }
+{ first: 'Charles', last: 'Darwin' }
+{ first: 'Marie', last: 'Curie' }
+{ first: 'Albert', last: 'Einstein' }
+{ first: 'Isaac', last: 'Newton' }
+{ first: 'Nikola', last: 'Tesla' }
+{ first: 'Stephen', last: 'Hawking' }
+{ first: 'Rosalind', last: 'Franklin' }
+{ first: 'Ada', last: 'Lovelace' }
+{ first: 'Galileo', last: 'Galilei' }
+{ first: 'Jane', last: 'Goodall' }
   ];
 
   const colleges = [
