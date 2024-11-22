@@ -1,4 +1,4 @@
-// Student data with 801 unique entries
+// Students data 
 const students = Array.from({ length: 801 }, (_, index) => {
   const scientistNames = [
     { first: 'Charles', last: 'Darwin' },
@@ -40,8 +40,8 @@ const students = Array.from({ length: 801 }, (_, index) => {
   
   return {
     first: scientist.first,
-    last: `${scientist.last}_${index + 1}`, // Ensure unique last names
-    id: `STU${String(index + 100000).slice(1)}`, // Generate unique IDs
+    last: scientist.last,
+    id: `STU${String(index).padStart(5, '0')}`,
     status: statuses[index % statuses.length],
     major: majors[index % majors.length],
     college: colleges[index % colleges.length],
