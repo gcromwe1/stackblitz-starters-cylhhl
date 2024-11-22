@@ -823,19 +823,19 @@ const students = Array.from({ length: 801 }, (_, index) => {
       break;
     }
   }
+// Return the student object with first name, last name, and other details
+return {
+  first: scientist.first,
+  last: scientist.last,
+  id: `STU${String(index).padStart(5, '0')}`,
+  status: statuses[index % statuses.length],
+  major: majors[index % majors.length],
+  college: colleges[index % colleges.length],
+  classification: classifications[index % classifications.length],
+  // Email format: first letter of first name + last name + index + @tnstate.edu
+  email: `${scientist.first[0].toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@tnstate.edu`
+};
 
-  // Return the student object with first name, last name, and other details
-  return {
-    first: scientist.first,
-    last: scientist.last,
-    id: `STU${String(index).padStart(5, '0')}`,
-    status: statuses[index % statuses.length],
-    major: majors[index % majors.length],
-    college: colleges[index % colleges.length],
-    classification: classifications[index % classifications.length],
-    email: `${scientist.first.toLowerCase()}${scientist.last.toLowerCase()}${index + 1}@my.tnstate.edu`
-  };
-});
 
 // Function to display students in the table
 function displayStudents(studentList) {
