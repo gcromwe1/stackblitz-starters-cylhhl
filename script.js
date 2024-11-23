@@ -1,4 +1,4 @@
-fetch('mock.json')  // Make sure this is the correct path to your mock.json
+fetch('mock.json')  
   .then(response => response.json())
   .then(students => {
     const searchInput = document.getElementById('searchInput');
@@ -10,18 +10,18 @@ fetch('mock.json')  // Make sure this is the correct path to your mock.json
     const prevPageButton = document.getElementById('prevPage');
     const nextPageButton = document.getElementById('nextPage');
 
-    // Pagination variables
+   
     let currentPage = 1;
     const resultsPerPage = 10;
 
-    // Save search criteria to localStorage
+   
     function saveSearchCriteria(criteria) {
       localStorage.setItem('searchCriteria', JSON.stringify(criteria));
     }
 
-    // Function to display students in the table
+   
     function displayStudents(filteredStudents) {
-      studentListElement.innerHTML = '';  // Clear previous results
+      studentListElement.innerHTML = '';  
       if (filteredStudents.length > 0) {
         const start = (currentPage - 1) * resultsPerPage;
         const end = start + resultsPerPage;
@@ -39,11 +39,11 @@ fetch('mock.json')  // Make sure this is the correct path to your mock.json
           studentListElement.appendChild(row);
         });
 
-        // Show pagination buttons
+        
         prevPageButton.style.display = currentPage > 1 ? 'inline-block' : 'none';
         nextPageButton.style.display = currentPage * resultsPerPage < filteredStudents.length ? 'inline-block' : 'none';
 
-        noResults.style.display = 'none';  // Hide "No results" message if there are results
+        noResults.style.display = 'none';  
       } else {
         noResults.style.display = 'block';  // Show "No results" message if no results
       }
