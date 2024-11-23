@@ -50,7 +50,8 @@ fetch('mock.json')
       resultsSection.style.display = filteredStudents.length > 0 ? 'block' : 'none';
     }
 
-    // Function to filter students based on search criteria
+    let filteredStudents = [];
+
     function filterStudents() {
       const searchText = searchInput.value.toLowerCase().trim();
       if (searchText.length === 0) {
@@ -58,8 +59,8 @@ fetch('mock.json')
         resultsSection.style.display = 'none';
         return;
       }
-
-      const filteredStudents = students.filter(student => {
+    
+      filteredStudents = students.filter(student => {
         const fullName = `${student.first_name} ${student.last_name}`.toLowerCase();
         const major = student.major.toLowerCase();
         const college = student.college.toLowerCase();
@@ -71,7 +72,8 @@ fetch('mock.json')
           classification.includes(searchText)
         );
       });
-
+    
+      // Dropdown suggestions
       dropdown.innerHTML = '';
       if (filteredStudents.length > 0) {
         dropdown.style.display = 'block';
@@ -82,17 +84,17 @@ fetch('mock.json')
           suggestion.addEventListener('click', () => {
             searchInput.value = suggestion.innerText;
             dropdown.style.display = 'none';
-            displayStudents(filteredStudents);
+            displayStudents(filteredStudents); // Re-display the filtered list
           });
           dropdown.appendChild(suggestion);
         });
       } else {
         dropdown.style.display = 'none';
       }
-
+    
       // Save the current search criteria
       saveSearchCriteria({ searchText });
-
+    
       // Display the filtered students
       displayStudents(filteredStudents);
     }
