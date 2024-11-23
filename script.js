@@ -1,9 +1,9 @@
 fetch('mock.json')  
   .then(response => response.json())
   .then(students => {
-    // Generate GPA for each student (between 2.6 and 4.0)
+    
     students.forEach(student => {
-      student.gpa = (Math.random() * (4.0 - 2.6) + 2.6).toFixed(2); // Generate random GPA between 2.6 and 4.0 and round to two decimals
+      student.gpa = (Math.random() * (4.0 - 2.6) + 2.6).toFixed(2); 
     });
 
     const searchInput = document.getElementById('searchInput');
@@ -53,7 +53,7 @@ fetch('mock.json')
       resultsSection.style.display = filteredStudents.length > 0 ? 'block' : 'none';
     }
 
-    // Function to filter students based on search criteria
+    
     function filterStudents() {
       const searchText = searchInput.value.toLowerCase().trim();
       if (searchText.length === 0) {
@@ -93,14 +93,14 @@ fetch('mock.json')
         dropdown.style.display = 'none';
       }
 
-      // Save the current search criteria
+      
       saveSearchCriteria({ searchText });
 
-      // Display the filtered students
+      
       displayStudents(filteredStudents);
     }
 
-    // Function to change the page for pagination
+    
     function changePage(direction) {
       if (direction === 1) {
         currentPage++;
@@ -110,10 +110,10 @@ fetch('mock.json')
       displayStudents(filteredStudents);
     }
 
-    // Event listeners
+   
     searchButton.addEventListener('click', filterStudents);  
     searchInput.addEventListener('click', () => {
-      dropdown.style.display = 'none'; // Close dropdown when clicking input
+      dropdown.style.display = 'none'; 
     });
 
     searchInput.addEventListener('input', () => {
@@ -127,7 +127,7 @@ fetch('mock.json')
     prevPageButton.addEventListener('click', () => changePage(-1));
     nextPageButton.addEventListener('click', () => changePage(1));
 
-    // Close the dropdown if the user clicks outside of it
+    
     document.addEventListener('click', (event) => {
       if (!dropdown.contains(event.target) && event.target !== searchInput) {
         dropdown.style.display = 'none';
