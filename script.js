@@ -1,8 +1,8 @@
-// Fetch the mock.json file and work with it
 fetch('mock.json')  // Make sure this is the correct path to your mock.json
   .then(response => response.json())
   .then(students => {
     const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
     const dropdown = document.getElementById('dropdown');
     const studentListElement = document.getElementById('studentList').getElementsByTagName('tbody')[0];
     const noResults = document.getElementById('noResults');
@@ -122,6 +122,7 @@ fetch('mock.json')  // Make sure this is the correct path to your mock.json
     }
 
     // Event listeners
+    searchButton.addEventListener('click', filterStudents);  // Trigger search when button is clicked
     searchInput.addEventListener('click', () => {
       dropdown.style.display = 'none'; // Close dropdown when clicking input
     });
