@@ -100,38 +100,24 @@ fetch('mock.json')
     }
 
     // Function to change the page for pagination
-    function changePage(direction) {
-      const searchText = searchInput.value.toLowerCase().trim();
-      const filteredStudents = students.filter(student => {
-        const fullName = `${student.first_name} ${student.last_name}`.toLowerCase();
-        const major = student.major.toLowerCase();
-        const college = student.college.toLowerCase();
-        const classification = student.classification.toLowerCase();
-        return (
-          fullName.includes(searchText) ||
-          major.includes(searchText) ||
-          college.includes(searchText) ||
-          classification.includes(searchText)
-        );
-      });
-      
-      if (direction === 1) {
+    function changePage(direction) { if (direction === 1) {
         currentPage++;
       } else if (direction === -1) {
         currentPage--;
       }
-      displayStudents(filteredStudents);
+      displayStudents(filteredStudents); 
     }
+    
 
-    // Event listeners
-    searchButton.addEventListener('click', filterStudents);  // Trigger search when button is clicked
+    
+    searchButton.addEventListener('click', filterStudents);  
     searchInput.addEventListener('click', () => {
-      dropdown.style.display = 'none'; // Close dropdown when clicking input
+      dropdown.style.display = 'none'; 
     });
 
     searchInput.addEventListener('input', () => {
       if (searchInput.value.trim().length < 3) {
-        dropdown.style.display = 'none'; // Hide dropdown if search text is too short
+        dropdown.style.display = 'none'; 
       } else {
         filterStudents();
       }
