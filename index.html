@@ -7,47 +7,45 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <div class="container">
-    <h1>Student Search</h1>
-    
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search by major, college, or classification...">
-      <button id="searchButton">Search</button>
-      <div id="dropdown" class="dropdown"></div> <!-- Dropdown for suggestions -->
-    </div>
-    
-    <!-- Results Section -->
-    <div id="resultsSection" style="display: none;">
-      <table id="studentList">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Major</th>
-            <th>College</th>
-            <th>Classification</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-
-      <!-- No Results Found Message -->
-      <div id="noResults" style="display: none;">No Results Found :(</div>
-
-      <!-- Pagination Controls -->
-      <div id="pagination">
-        <button id="prevPage" onclick="changePage(-1)">Previous</button>
-        <button id="nextPage" onclick="changePage(1)">Next</button>
-      </div>
-    </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <button id="searchButton">Search</button>
   </div>
-
+  
+  <div id="dropdown" class="dropdown-menu"></div>
+  
+  <!-- Section that holds the search results and no-results message -->
+  <section id="resultsSection" style="display: none;">
+    <div id="noResults" style="display: none; font-size: 18px; color: #ff0000;">No results found :(</div> <!-- Message when no results found -->
+    <table id="studentList">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>ID</th>
+          <th>Major</th>
+          <th>College</th>
+          <th>Classification</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="pagination">
+      <button id="prevPage" style="display: none;">Previous</button>
+      <button id="nextPage" style="display: none;">Next</button>
+    </div>
+  </section>
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 

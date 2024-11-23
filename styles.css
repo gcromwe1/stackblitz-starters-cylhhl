@@ -1,46 +1,55 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-bar {
+/* Center the search container */
+.search-container {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  justify-content: center; /* Centers the search bar horizontally */
+  align-items: center;
+  gap: 8px; /* Spacing between search bar and button */
+  margin-bottom: 16px;
+  width: 100%; /* Ensures it spans the width of the page */
 }
 
-.search-bar input {
-  width: 80%;
-  padding: 10px;
+/* Styling the search input (rounded and centered) */
+#searchInput {
+  padding: 10px 14px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 25px; /* Makes the search bar rounded */
+  outline: none;
+  width: 300px; /* Adjust the width as desired */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better look */
 }
 
-#dropdown {
-  position: absolute;
-  width: 80%;
+/* Styling the search button (square shape) */
+#searchButton {
+  padding: 10px 16px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff; /* Blue */
+  border: none;
+  border-radius: 8px; /* Slightly rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#searchButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+#searchButton:active {
+  background-color: #004085; /* Even darker blue */
+  transform: scale(0.98); /* Slightly reduces size on click */
+}
+
+/* Styling the dropdown */
+.dropdown-menu {
   border: 1px solid #ccc;
   background-color: white;
+  position: absolute;
   max-height: 200px;
   overflow-y: auto;
+  width: 300px;
   display: none;
-  z-index: 100;
+  border-radius: 8px; /* Slight rounding for better appearance */
 }
 
 .dropdown-item {
@@ -49,28 +58,42 @@ h1 {
 }
 
 .dropdown-item:hover {
-  background-color: #f2f2f2;
+  background-color: #f0f0f0;
 }
 
-table {
+/* Styling the results table */
+#studentList {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
-th,
-td {
-  padding: 10px;
+#studentList th, #studentList td {
+  border: 1px solid #ddd;
+  padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-th {
-  background-color: #f2f2f2;
+#studentList th {
+  background-color: #007bff;
+  color: white;
 }
 
-#noResults {
-  text-align: center;
-  color: red;
-  margin-top: 20px;
+/* Styling the pagination buttons */
+.pagination button {
+  padding: 8px 16px;
+  margin: 8px 4px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
