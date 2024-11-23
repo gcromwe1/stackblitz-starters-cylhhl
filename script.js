@@ -1,77 +1,61 @@
-// Sample student data
-const students = [
-  {
-    first: 'Charles',
-    last: 'Darwin',
-    id: 'ABC28491178',
-    status: 'None sent',
-    major: 'Chemistry',
-    college: 'Natural Sciences',
-    classification: 'Junior',
-    email: 'cdarwin1@my.tnstate.edu',
-  },
-  {
-    first: 'Marie',
-    last: 'Curie',
-    id: 'XYZ123456',
-    status: 'Interviewed',
-    major: 'Environmental Sciences',
-    college: 'Physical Sciences',
-    classification: 'Sophomore',
-    email: 'mcurie1@my.tnstate.edu',
-  },
-  {
-    first: 'Ilbert',
-    last: 'Einstein',
-    id: 'DEF987654',
-    status: 'Sent',
-    major: 'Psychology',
-    college: 'Natural Sciences',
-    classification: 'Junior',
-    email: 'ieinstein1@my.tnstate.edu',
-  },
-  // Add other students here following the same structure...
-];
+// Fetch the student data from MOCK_DATA.json
+fetch('mock.json')
+  .then((response) => response.json())
+  .then((students) => {
+    // Store data for later use
+    const allStudents = students;
+
+    // Display all students initially
+    displayStudents(allStudents);
+
+    // Search functionality
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+
+    searchButton.addEventListener('click', () => searchStudents(allStudents, searchInput.value));
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') searchStudents(allStudents, searchInput.value);
+    });
+  })
+  .catch((error) => {
+    console.error('Error fetching the JSON file:', error);
+  });
 
 // Function to display students in the table
 function displayStudents(studentList) {
   const studentListElement = document.getElementById('studentList');
-  studentListElement.innerHTML = ''; // Clear previous results
+  studentListElement.innerHTML = ''; // Clear the previous list
 
   studentList.forEach((student) => {
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td>${student.first} ${student.last}</td>  
-      <td>${student.id}</td>  
-      <td>${student.status}</td>  
+      <td>${student['first_name']} ${student['last_name']}</td>
+      <td>${student.id}</td>
       <td>${student.major}</td>
       <td>${student.college}</td>
-      <td>${student.classification}</td> 
-      <td>${student.email}</td>     
+      <td>${student.classification}</td>
+      <td>${student.email}</td>
     `;
     studentListElement.appendChild(row);
   });
 }
 
-// Function to filter students based on search input
-function filterStudents() {
-  const searchInput = document
-    .getElementById('searchInput')
-    .value.toLowerCase();
-  const filteredStudents = students.filter((student) => {
-    return (
-      `${student.first} ${student.last}`.toLowerCase().includes(searchInput) ||
-      student.id.toLowerCase().includes(searchInput) ||
-      (student.college && student.college.toLowerCase().includes(searchInput)) // Partial college name match
-    );
-  });
-  displayStudents(filteredStudents);
+// Function to handle search
+function searchStudents(allStudents, query) {
+  const lowerCaseQuery = query.trim().toLowerCase();
+  const filteredStudents = allStudents.filter((student) =>
+    `${student['first name']} ${student['last name']}`.toLowerCase().includes(lowerCaseQuery) ||
+    student.id.toString().includes(lowerCaseQuery) ||
+    student.college.toLowerCase().includes(lowerCaseQuery)
+  );
+
+  const noResultsElement = document.getElementById('noResults');
+  if (filteredStudents.length > 0) {
+    noResultsElement.style.display = 'none';
+    displayStudents(filteredStudents);
+  } else {
+    document.getElementById('studentList').innerHTML = '';
+    noResultsElement.style.display = 'block';
+  }
 }
 
-// Event listener for the search button
-document
-  .getElementById('searchButton')
-  .addEventListener('click', filterStudents);
-
-// Initial display of all students
-displayStudents(students);
