@@ -8,6 +8,7 @@ fetch('mock.json')
 
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
+    const clearSearchButton = document.getElementById('clearSearchButton');
     const dropdown = document.getElementById('dropdown');
     const studentListElement = document.getElementById('studentList').getElementsByTagName('tbody')[0];
     const noResults = document.getElementById('noResults');
@@ -59,9 +60,7 @@ fetch('mock.json')
       }
       resultsSection.style.display = filteredStudents.length > 0 ? 'block' : 'none';
     }
-    
 
-    
     function filterStudents() {
       const searchText = searchInput.value.toLowerCase().trim();
       if (searchText.length === 0) {
@@ -101,14 +100,11 @@ fetch('mock.json')
         dropdown.style.display = 'none';
       }
 
-      
       saveSearchCriteria({ searchText });
 
-      
       displayStudents(filteredStudents);
     }
 
-    
     function changePage(direction) {
       if (direction === 1) {
         currentPage++;
@@ -118,7 +114,6 @@ fetch('mock.json')
       displayStudents(filteredStudents);
     }
 
-   
     searchButton.addEventListener('click', filterStudents);  
     searchInput.addEventListener('click', () => {
       dropdown.style.display = 'none'; 
@@ -135,7 +130,12 @@ fetch('mock.json')
     prevPageButton.addEventListener('click', () => changePage(-1));
     nextPageButton.addEventListener('click', () => changePage(1));
 
-    
+    clearSearchButton.addEventListener('click', () => {
+      searchInput.value = '';
+      dropdown.style.display = 'none';
+      resultsSection.style.display = 'none';
+    });
+
     document.addEventListener('click', (event) => {
       if (!dropdown.contains(event.target) && event.target !== searchInput) {
         dropdown.style.display = 'none';
@@ -147,3 +147,5 @@ fetch('mock.json')
     console.error('Error fetching mock data:', error);
   });
 
+
+  

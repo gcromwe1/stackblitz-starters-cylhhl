@@ -1,19 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Other page</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/page2.html" aria-current="page">Other page</a>
-    </nav>
-    <main>
-      <h1>My other page</h1>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Search</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      position: relative; /* This makes the dropdown position relative to the search container */
+    }
+
+    /* Buttons side by side */
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    #searchButton, #clearSearchButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    #searchButton:hover, #clearSearchButton:hover {
+      background-color: #1558b1;
+    }
+
+    #clearSearchButton {
+      background-color: #f44336;
+    }
+
+    #clearSearchButton:hover {
+      background-color: #d32f2f;
+    }
+
+    #searchInput {
+      padding: 12px 20px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      margin-bottom: 10px;
+    }
+
+    /* Dropdown styling */
+    #dropdown {
+      position: absolute; /* Position dropdown below the input field */
+      top: 100%; /* Places the dropdown directly below the search input field */
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none; /* Hidden by default */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better visibility */
+    }
+
+    .dropdown-item {
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    #resultsSection {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    #studentList {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #studentList th, #studentList td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .pagination {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .pagination button {
+      padding: 5px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
+
+    .pagination button:hover {
+      background-color: #0056b3;
+    }
+
+    #noResults {
+      font-size: 18px;
+      color: #ff0000;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <div class="button-container">
+      <button id="searchButton">Search</button>
+      <button id="clearSearchButton">Clear</button>
+    </div>
+    <input type="text" id="searchInput" placeholder="Search students...">
+    <div id="dropdown"></div>
+  </div>
+
+  <section id="resultsSection">
+    <div id="noResults" style="display: none;">No results found :(</div>
+    <table id="studentList">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>ID</th>
+          <th>Major</th>
+          <th>College</th>
+          <th>Classification</th>
+          <th>Email</th>
+          <th>GPA</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="pagination">
+      <button id="prevPage" style="display: none;">Previous</button>
+      <button id="nextPage" style="display: none;">Next</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
 </html>
