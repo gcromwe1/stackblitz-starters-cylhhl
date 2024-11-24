@@ -30,6 +30,13 @@ fetch('mock.json')
         const end = start + resultsPerPage;
         const pageResults = filteredStudents.slice(start, end);
         pageResults.forEach(student => {
+          
+          const firstNameLetter = student.first_name.charAt(0).toLowerCase(); 
+          const lastName = student.last_name.toLowerCase();  
+          const studentId = student.id.toString();  
+          const lastTwoDigits = studentId.slice(-2);  
+          const email = `${firstNameLetter}${lastName}${lastTwoDigits}@tnstate.edu`;
+    
           const row = document.createElement('tr');
           row.innerHTML = `
             <td>${student.first_name} ${student.last_name}</td>
@@ -37,21 +44,22 @@ fetch('mock.json')
             <td>${student.major}</td>
             <td>${student.college}</td>
             <td>${student.classification}</td>
-            <td>${student.email}</td>
+            <td>${email}</td> <!-- Display the generated email -->
             <td>${student.gpa}</td> <!-- Display the GPA -->
           `;
           studentListElement.appendChild(row);
         });
-
+    
         prevPageButton.style.display = currentPage > 1 ? 'inline-block' : 'none';
         nextPageButton.style.display = currentPage * resultsPerPage < filteredStudents.length ? 'inline-block' : 'none';
-
+    
         noResults.style.display = 'none';  
       } else {
         noResults.style.display = 'block';  
       }
       resultsSection.style.display = filteredStudents.length > 0 ? 'block' : 'none';
     }
+    
 
     
     function filterStudents() {
