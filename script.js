@@ -44,8 +44,8 @@ fetch('mock.json')
             <td>${student.major}</td>
             <td>${student.college}</td>
             <td>${student.classification}</td>
-            <td>${email}</td> <!-- Display the generated email -->
-            <td>${student.gpa}</td> <!-- Display the GPA -->
+            <td>${email}</td> 
+            <td>${student.gpa}</td> 
           `;
           studentListElement.appendChild(row);
         });
